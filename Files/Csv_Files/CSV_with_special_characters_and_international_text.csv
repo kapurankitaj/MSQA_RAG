@@ -1,0 +1,7 @@
+id,name,native_name,country,currency_symbol,description
+1,John Smith,John Smith,USA,$,"English text, no special characters"
+2,María González,María González,Spain,€,"Text with áccénted characters"
+3,François Dubois,François Dubois,France,€,"More accented châractères"
+4,日向 結衣,Yui Hyuga,Japan,¥,"Unicode characters: 日本語"
+5,Александр Иванов,Alexander Ivanov,Russia,₽,"Cyrillic text: кириллица"
+6,محمد علي,Mohammed Ali,Egypt,£,"Arabic text: العربية"

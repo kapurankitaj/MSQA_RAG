@@ -1,0 +1,6 @@
+id,value,description,date,is_active,score
+1,42,"Integer value",2023-01-15,TRUE,3.7
+2,"ABC","String value",2023-02-20,FALSE,4.2
+3,73.5,"Float value",2023-03-25,TRUE,2.8
+4,"TRUE","Boolean as string",2023-04-30,TRUE,5.0
+5,,"Empty value",2023-05-05,FALSE,

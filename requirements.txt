@@ -1,0 +1,52 @@
+# Core Libraries
+numpy
+pandas
+tqdm
+python-dotenv
+
+# AI and NLP
+openai
+langchain
+langchain-community
+langchain-groq
+sentence-transformers
+tiktoken
+nltk
+scikit-learn
+
+# Document Processing
+PyPDF2
+llama-index
+llama-parse
+beautifulsoup4
+trafilatura
+requests
+pyspellchecker
+
+# Vector Search and Retrieval
+faiss-cpu
+rank-bm25
+
+# Database
+SQLAlchemy
+
+# Web Scraping (Optional)
+selenium
+webdriver-manager
+
+# Evaluation
+ragas
+datasets
+
+# Configuration
+pyyaml
+
+# Optional Visualization
+matplotlib
+seaborn
+
+# Web Interface
+streamlit
+
+# Misc
+python-dateutil

@@ -1,0 +1,629 @@
+<!doctype html>
+<html lang="en" class="no-js" data-header-style="classic">
+
+<head>
+    <title>Why Definely chose LangGraph for building their multi-agent AI system</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>document.documentElement.classList.replace('no-js','js');</script>
+    <script>
+        if (window.localStorage.getItem('kutak-prefers-color-scheme') && !document.documentElement.hasAttribute('data-prefers-color-scheme')) {
+            document.documentElement.setAttribute('data-prefers-color-scheme', window.localStorage.getItem('kutak-prefers-color-scheme'));
+        }
+    </script>
+
+    <link rel="preload" as="font" type="font/woff2" href="https://blog.langchain.dev/assets/fonts/source-sans-pro-v21-latin-ext_latin-regular.woff2?v=80df0666b2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="https://blog.langchain.dev/assets/fonts/source-sans-pro-v21-latin-ext_latin-600.woff2?v=80df0666b2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="https://blog.langchain.dev/assets/fonts/source-sans-pro-v21-latin-ext_latin-700.woff2?v=80df0666b2" crossorigin>
+
+<style>
+    @font-face {
+        font-family: 'Source Sans Pro';
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url('https://blog.langchain.dev/assets/fonts/source-sans-pro-v21-latin-ext_latin-regular.woff2?v=80df0666b2') format('woff2');
+    }
+
+    @font-face {
+        font-family: 'Source Sans Pro';
+        font-style: italic;
+        font-weight: 400;
+        font-display: swap;
+        src: url('https://blog.langchain.dev/assets/fonts/source-sans-pro-v21-latin-ext_latin-italic.woff2?v=80df0666b2') format('woff2');
+    }
+
+    @font-face {
+        font-family: 'Source Sans Pro';
+        font-style: normal;
+        font-weight: 600;
+        font-display: swap;
+        src: url('https://blog.langchain.dev/assets/fonts/source-sans-pro-v21-latin-ext_latin-600.woff2?v=80df0666b2') format('woff2');
+    }
+
+    @font-face {
+        font-family: 'Source Sans Pro';
+        font-style: italic;
+        font-weight: 600;
+        font-display: swap;
+        src: url('https://blog.langchain.dev/assets/fonts/source-sans-pro-v21-latin-ext_latin-600italic.woff2?v=80df0666b2') format('woff2');
+    }
+
+    @font-face {
+        font-family: 'Source Sans Pro';
+        font-style: normal;
+        font-weight: 700;
+        font-display: swap;
+        src: url('https://blog.langchain.dev/assets/fonts/source-sans-pro-v21-latin-ext_latin-700.woff2?v=80df0666b2') format('woff2');
+    }
+
+    @font-face {
+        font-family: 'Source Sans Pro';
+        font-style: italic;
+        font-weight: 700;
+        font-display: swap;
+        src: url('https://blog.langchain.dev/assets/fonts/source-sans-pro-v21-latin-ext_latin-700italic.woff2?v=80df0666b2') format('woff2');
+    }
+
+    :root {
+        --kutak--font-family--base: 'Source Sans Pro', Helvetica, sans-serif;
+        --kutak--font-family--headings: 'Source Sans Pro', Helvetica, sans-serif;
+        --kutak--font-family--elements: 'Source Sans Pro', Helvetica, sans-serif;
+        --kutak--font-weight--base: 400;
+        --kutak--font-weight--base-bold: 700;
+        --kutak--font-weight--headings: 700;
+        --kutak--font-weight--headings-small: 600;
+        --kutak--font-weight--elements: 600;
+    }
+</style>
+
+    <link rel="stylesheet" href="https://blog.langchain.dev/assets/dist/style.css?v=80df0666b2">
+
+                <link rel="preload" as="image"
+                imagesrcset="/content/images/size/w360/format/webp/2025/04/Definely-case-study--1-.png 360w,/content/images/size/w480/format/webp/2025/04/Definely-case-study--1-.png 480w,/content/images/size/w760/format/webp/2025/04/Definely-case-study--1-.png 760w,/content/images/size/w990/format/webp/2025/04/Definely-case-study--1-.png 990w,/content/images/size/w1248/format/webp/2025/04/Definely-case-study--1-.png 1248w,/content/images/size/w1520/format/webp/2025/04/Definely-case-study--1-.png 1520w"
+                imagesizes="(min-width: 1280px) 580px, (min-width: 1000px) calc(50vw - 60px), 100vw">
+
+
+    <meta name="description" content="See how Definely used LangGraph to design a multi-agent system to help lawyers speed up their workflows.">
+    <link rel="icon" href="https://blog.langchain.dev/content/images/size/w256h256/2024/03/Twitter_ProfilePicture.png" type="image/png">
+    <link rel="canonical" href="https://blog.langchain.dev/customers-definely/">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <meta property="og:site_name" content="LangChain Blog">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Why Definely chose LangGraph for building their multi-agent AI system">
+    <meta property="og:description" content="See how Definely used LangGraph to design a multi-agent system to help lawyers speed up their workflows.">
+    <meta property="og:url" content="https://blog.langchain.dev/customers-definely/">
+    <meta property="og:image" content="https://blog.langchain.dev/content/images/size/w1200/2025/04/Definely-case-study--1-.png">
+    <meta property="article:published_time" content="2025-04-07T19:53:40.000Z">
+    <meta property="article:modified_time" content="2025-04-08T16:35:26.000Z">
+    <meta property="article:tag" content="Case Studies">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Why Definely chose LangGraph for building their multi-agent AI system">
+    <meta name="twitter:description" content="See how Definely used LangGraph to design a multi-agent system to help lawyers speed up their workflows.">
+    <meta name="twitter:url" content="https://blog.langchain.dev/customers-definely/">
+    <meta name="twitter:image" content="https://blog.langchain.dev/content/images/size/w1200/2025/04/Definely-case-study--1-.png">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="LangChain">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="Case Studies">
+    <meta name="twitter:site" content="@LangChainAI">
+    <meta name="twitter:creator" content="@LangChainAI">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="714">
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "LangChain Blog",
+        "url": "https://blog.langchain.dev/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://blog.langchain.dev/content/images/2024/03/LangChain-logo.png"
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "LangChain",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://blog.langchain.dev/content/images/2023/01/parroticon.png",
+            "width": 448,
+            "height": 448
+        },
+        "url": "https://blog.langchain.dev/author/langchain/",
+        "sameAs": [
+            "https://twitter.com/LangChainAI"
+        ]
+    },
+    "headline": "Why Definely chose LangGraph for building their multi-agent AI system",
+    "url": "https://blog.langchain.dev/customers-definely/",
+    "datePublished": "2025-04-07T19:53:40.000Z",
+    "dateModified": "2025-04-08T16:35:26.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://blog.langchain.dev/content/images/size/w1200/2025/04/Definely-case-study--1-.png",
+        "width": 1200,
+        "height": 714
+    },
+    "keywords": "Case Studies",
+    "description": "See how Definely used LangGraph to design a multi-agent system to help lawyers speed up their workflows.",
+    "mainEntityOfPage": "https://blog.langchain.dev/customers-definely/"
+}
+    </script>
+
+    <meta name="generator" content="Ghost 5.117">
+    <link rel="alternate" type="application/rss+xml" title="LangChain Blog" href="https://blog.langchain.dev/rss/">
+    <script defer src="https://cdn.jsdelivr.net/ghost/portal@~2.50/umd/portal.min.js" data-i18n="true" data-ghost="https://blog.langchain.dev/" data-key="e411fdfa6f54398669f416d1f0" data-api="https://langchain-blog.ghost.io/ghost/api/content/" data-locale="en" crossorigin="anonymous"></script><style id="gh-members-styles">.gh-post-upgrade-cta-content,
+.gh-post-upgrade-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-align: center;
+    width: 100%;
+    color: #ffffff;
+    font-size: 16px;
+}
+
+.gh-post-upgrade-cta-content {
+    border-radius: 8px;
+    padding: 40px 4vw;
+}
+
+.gh-post-upgrade-cta h2 {
+    color: #ffffff;
+    font-size: 28px;
+    letter-spacing: -0.2px;
+    margin: 0;
+    padding: 0;
+}
+
+.gh-post-upgrade-cta p {
+    margin: 20px 0 0;
+    padding: 0;
+}
+
+.gh-post-upgrade-cta small {
+    font-size: 16px;
+    letter-spacing: -0.2px;
+}
+
+.gh-post-upgrade-cta a {
+    color: #ffffff;
+    cursor: pointer;
+    font-weight: 500;
+    box-shadow: none;
+    text-decoration: underline;
+}
+
+.gh-post-upgrade-cta a:hover {
+    color: #ffffff;
+    opacity: 0.8;
+    box-shadow: none;
+    text-decoration: underline;
+}
+
+.gh-post-upgrade-cta a.gh-btn {
+    display: block;
+    background: #ffffff;
+    text-decoration: none;
+    margin: 28px 0 0;
+    padding: 8px 18px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.gh-post-upgrade-cta a.gh-btn:hover {
+    opacity: 0.92;
+}</style>
+    <script defer src="https://cdn.jsdelivr.net/ghost/sodo-search@~1.5/umd/sodo-search.min.js" data-key="e411fdfa6f54398669f416d1f0" data-styles="https://cdn.jsdelivr.net/ghost/sodo-search@~1.5/umd/main.css" data-sodo-search="https://langchain-blog.ghost.io/" data-locale="en" crossorigin="anonymous"></script>
+    
+    <link href="https://blog.langchain.dev/webmentions/receive/" rel="webmention">
+    <script defer src="/public/cards.min.js?v=80df0666b2"></script>
+    <link rel="stylesheet" type="text/css" href="/public/cards.min.css?v=80df0666b2">
+    <script defer src="/public/member-attribution.min.js?v=80df0666b2"></script><style>:root {--ghost-accent-color: #1c3b3b;}</style>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z8XE5ZJE6X"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Z8XE5ZJE6X');
+</script>
+<script defer data-domain="blog.langchain.dev" src="https://plausible.io/js/script.js"></script>
+
+<style>
+  .nav-signin { /* Replace .nav-signin with the actual class or id */
+    display: none !important;
+  }
+</style>
+
+
+<style>
+@media (min-width: 62.5em) {
+    .article-header__figure {
+        aspect-ratio: 16/9;
+    }
+
+</style>
+</head>
+
+<body class="post-template tag-case-studies">
+
+    <a class="skip-link visually-hidden-focusable" href="#main">Skip to content</a>
+
+    <div class="site">
+
+        <header id="site-header" class="site-header">
+    <span class="site-header__bg"></span>
+
+    <div class="site-header__container container">
+        <button
+            class="site-header__hamburger"
+            data-site-action-trigger="navigation"
+            aria-label="Open Menu"
+            aria-expanded="false"
+            aria-controls="site-actions-navigation">
+            <span></span>
+        </button>
+
+        <a href="https://blog.langchain.dev" rel="home" class="site-header__logo">
+                <img class="site-header__logo-image" data-logo-color-scheme="default" src="https://blog.langchain.dev/content/images/2024/03/LangChain-logo.png" alt="LangChain Blog">
+        </a>
+
+        <div id="site-actions-navigation" class="site-navigation">
+            <div class="site-navigation__inner">
+                        <nav class="nav-classic">
+            <ul class="nav-classic__menu">
+                 
+                    <li class="nav-classic__menu-item">
+                        <a class="nav-classic__menu-link" href="https://blog.langchain.dev/tag/case-studies/">
+                            <span class="nav-classic__menu-title">Case Studies</span>
+                        </a>
+                    </li>
+                 
+                 
+                    <li class="nav-classic__menu-item">
+                        <a class="nav-classic__menu-link" href="https://blog.langchain.dev/tag/in-the-loop/">
+                            <span class="nav-classic__menu-title">In the Loop</span>
+                        </a>
+                    </li>
+                 
+                 
+                    <li class="nav-classic__menu-item">
+                        <a class="nav-classic__menu-link" href="https://www.langchain.com/">
+                            <span class="nav-classic__menu-title">LangChain</span>
+                        </a>
+                    </li>
+                 
+                 
+                    <li class="nav-classic__menu-item">
+                        <a class="nav-classic__menu-link" href="https://python.langchain.com/docs/get_started/introduction">
+                            <span class="nav-classic__menu-title">Docs</span>
+                        </a>
+                    </li>
+                 
+                 
+                    <li class="nav-classic__menu-item">
+                        <a class="nav-classic__menu-link" href="https://changelog.langchain.com/">
+                            <span class="nav-classic__menu-title">Changelog</span>
+                        </a>
+                    </li>
+                 
+            </ul>
+        </nav>
+
+                    <div class="site-account">
+                <a class="site-account__link" href="#/portal/signin" data-portal="signin">Sign in</a>
+                <a class="site-account__button button" data-btn-size="small" href="#/portal/signup" data-portal="signup">Subscribe</a>
+    </div>
+                            </div>
+        </div>
+
+        <button
+            class="site-header__search-trigger"
+            aria-label="Open Search"
+            data-ghost-search>
+            <span></span>
+        </button>
+    </div>
+
+    <div class="site-actions">
+        <span class="site-actions__backdrop" data-close-site-actions></span>
+        <span class="site-actions__bg"></span>
+
+
+    </div>
+
+</header>
+
+        <main id="main" class="site-main">
+            
+
+<article class="article post tag-case-studies">
+
+    <header class="article-header section" data-layout-grid="custom" data-theme="highlight" data-section="first" data-has-featured-image="true">
+        <figure class="article-header__figure">
+            <img class="article-header__image"
+                width="16" height="9"
+                src="/content/images/size/w760/format/webp/2025/04/Definely-case-study--1-.png"
+                srcset="/content/images/size/w360/format/webp/2025/04/Definely-case-study--1-.png 360w,/content/images/size/w480/format/webp/2025/04/Definely-case-study--1-.png 480w,/content/images/size/w760/format/webp/2025/04/Definely-case-study--1-.png 760w,/content/images/size/w990/format/webp/2025/04/Definely-case-study--1-.png 990w,/content/images/size/w1248/format/webp/2025/04/Definely-case-study--1-.png 1248w,/content/images/size/w1520/format/webp/2025/04/Definely-case-study--1-.png 1520w"
+                sizes="(min-width: 1280px) 580px, (min-width: 1000px) calc(50vw - 60px), 100vw"
+                loading="eager"
+                alt="Why Definely chose LangGraph for building their multi-agent AI system"
+                onload="this.setAttribute('data-loaded', true)">
+        </figure>
+        <div class="article-header__content">
+            <h1 class="article-header__title">Why Definely chose LangGraph for building their multi-agent AI system</h1>
+            <p class="article-header__excerpt">See how Definely used LangGraph to design a multi-agent system to help lawyers speed up their workflows.</p>
+            <div class="article-header__footer">
+                <a href="/tag/case-studies/" class="article-header__meta article-header__meta-tag-primary" rel="tag">Case Studies</a>
+                <span class="article-header__meta article-header__meta--read-time">3 min read</span>
+                <time class="article-header__meta article-header__meta--date" datetime="2025-04-07">Apr 7, 2025</time>
+            </div>
+        </div>
+    </header>
+
+    <div class="article-main section" data-canvas-grid="content">
+        <div class="article-content" data-canvas-grid="content" data-canvas-grid-self="full">
+            <p><a href="https://www.definely.com/?ref=blog.langchain.dev" rel="noreferrer">Definely</a> is revolutionizing the legal industry by integrating AI-driven solutions into lawyers' daily workflows. Focused on enhancing efficiency and accuracy, Definely is building specialized agents that operate within Microsoft Word, allowing lawyers to streamline contract drafting, negotiating and review. With a goal of building the most effective infrastructure for legal workflows, Definely chose LangGraph to flexibly design a multi-agent system that could help lawyers solve complex legal tasks.</p><h3 id="key-problem-time-consuming-workflows-for-lawyers"><strong>Key Problem: Time-consuming workflows for lawyers</strong></h3><p>Legal professionals often deal with high volumes of contracts, legal research, and document organization — tasks that are time-consuming and prone to human error. Previously, Definely utilized a retrieval-augmented generation (RAG) chatbot built on LangChain, a solution that primarily answered questions about contract content and was limited in the range of tasks it could solve.</p><p>To address challenges in contract drafting, review and negotiation workflows, Definely is building an advanced agentic system composed of multiple specialised agents. Engineered to tackle a broader range of complex legal tasks that lawyers need to complete, this architecture is designed to:</p><ul><li><strong>Plan:</strong> Break down intricate legal challenges into smaller, manageable subtasks.</li><li><strong>Solve:</strong> Deploy dedicated agents that work together to complete each subtask.</li><li><strong>Adapt:</strong> Dynamically revise the approach as tasks evolve.</li><li><strong>Interact:</strong> Incorporate human input and approval at key moments to guide decisions.</li></ul><figure class="kg-card kg-image-card"><img src="https://blog.langchain.dev/content/images/2025/04/image2-1.png" class="kg-image" alt="" loading="lazy" width="534" height="137"></figure><h3 id="using-langgraph-to-build-a-customized-multi-agent-system"><strong>Using LangGraph to build a customized multi-agent system</strong></h3><p>Definely adopted LangGraph to build a sophisticated multi-agent system that enables lawyers to collaborate seamlessly with AI agents for various legal tasks. Definely’s decision to adopt LangGraph was driven by its graph-based architecture, which enabled the creation of an adaptable, highly customizable multi-agent framework that mirrors the way lawyers handle daily tasks. Its non-opinionated and flexible design makes it especially effective for complex fields like law, where integrating extensive domain knowledge and bespoke information is crucial. This approach empowers legal professionals to delegate specialized tasks to AI agents while retaining full oversight and control over the final outputs.</p><p>With LangGraph, Definely’s AI system can:</p><ul><li><strong>Extract key contract information</strong>: Automatically pull relevant details from contracts, including definitions, clauses and other kinds of contract data, accurately and reliably. This allows the lawyer to better understand the terms, obligations and commitments in a contract.</li><li><strong>Analyse consequence of changes to contract</strong>: Analyse the consequence of each change made to a contract. This allows the lawyer to understand whether any changes to a contract have flow-on implications for other parts of the agreement.</li><li><strong>Answer complex legal queries</strong>: Answer questions a user has across multiple contracts, ensuring that every pertinent aspect is considered. This allows the lawyer to better understand their contracts across multiple documents.</li><li><strong>Draft and enhance contract language</strong>: Assist in drafting, reviewing, summarizing, modifying and enhancing contract language without losing context - including drafting new clauses tailored to your needs and based on the lawyer’s prior work. This allows the lawyer to draft and review their contracts with speed, accuracy and high quality.</li><li><strong>Seamless system integration &amp; document management</strong>: Integrate with your law firm’s document management system to access gold standard clauses, unique precedents, deal data, and historical knowledge enhancing decision-making, clause drafting, and responses to legal queries. This allows the lawyer to draft and review contracts in line with the firm’s practices and prior deals, and maintain the firm’s high quality standard.</li><li><strong>Contract mark-up</strong>: Automatically mark-up legal teams’ contracts according to their guidelines, preferences, and prior deals. This allows the lawyer to draft and review contracts with high consistency, efficiency, and the relevant context.</li></ul><figure class="kg-card kg-image-card"><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXeOS_iPf6D0nvMN8NUA19BQsVEfzvcrsi57QmA-Rk73wWaKMCFWvAKodSJUvbmFHv8E2UJBY2lhoQgAdEPx6N_jQMubi9GDOP7fZZRhxLmBX1pya9RQE16aagjcBrcP7wDADLCh?key=s_EyzZ-2JawEfFdb8wqJYES7" class="kg-image" alt="" loading="lazy" width="557" height="353"></figure><blockquote><em>“LangGraph’s flexibility has allowed us to build AI agents that mirror how legal professionals approach their work. This is a game-changer for lawyers and the industry.”</em> – &nbsp;<strong>Sigurjon Isaksson, Head of AI at Definely</strong></blockquote><h3 id="conclusion"><strong>Conclusion&nbsp;</strong></h3><p>Definely is poised to redefine how legal professionals interact with AI to augment workflows where accuracy is paramount. The next phase of development will focus on expanding the system’s capabilities, refining agent performance, and ensuring seamless integration with additional legal databases and tools.</p><p>As Definely continues to innovate, the company remains committed to building AI-powered legal infrastructure that enhances productivity while maintaining high standards of accuracy.</p>
+        </div>
+
+        <div class="article-tags">
+            <h3 class="article-tags__title meta-title">Tags</h3>
+            <div class="article-tags__cloud tagcloud"><a href="/tag/case-studies/">Case Studies</a></div>
+        </div>
+
+
+
+        <div class="article-newsletter newsletter-box" data-theme="highlight">
+            <h3 class="newsletter-box__title meta-title">Join our newsletter</h3>
+            <p class="newsletter-box__info">Updates from the LangChain team and community</p>
+            <form class="newsletter-box__form" data-members-form="signup" data-theme="reset">
+                <div class="newsletter-box__form-field">
+                    <label for="newsletter-box-email-input" class="visually-hidden">Enter your email</label>
+                    <input id="newsletter-box-email-input" class="newsletter-box__form-input" type="email" name="email" placeholder="Enter your email" required data-members-email>
+                    <button class="newsletter-box__form-submit" type="submit">Subscribe</button>
+                </div>
+                <p class="newsletter-box__message" data-message="loading">Processing your application...</p>
+                <p class="newsletter-box__message" data-message="success">Success! Please check your inbox and click the link to confirm your subscription.</p>
+                <p class="newsletter-box__message" data-message="error">Sorry, something went wrong. Please try again.</p>
+            </form>
+        </div>
+    </div>
+
+    <footer class="article-footer">
+        
+<div class="related-posts section" data-canvas-grid="container" data-theme="highlight">
+    <h3 class="related-posts__title section-title">You might also like</h3>
+    <div class="related-posts__grid grid">
+            <article class="post-card post tag-case-studies" data-layout="horizontal" data-has-featured-image="true">
+
+    
+    <a href="/customers-abu-dhabi-government/" class="post-card__media" tabindex="-1">
+        <picture class="post-card__figure">
+            <source
+                srcset="/content/images/size/w360/format/webp/2025/04/Abu-Dhabi-govt-case-study.png 360w,/content/images/size/w480/format/webp/2025/04/Abu-Dhabi-govt-case-study.png 480w,/content/images/size/w760/format/webp/2025/04/Abu-Dhabi-govt-case-study.png 760w,/content/images/size/w990/format/webp/2025/04/Abu-Dhabi-govt-case-study.png 990w,/content/images/size/w1248/format/webp/2025/04/Abu-Dhabi-govt-case-study.png 1248w,/content/images/size/w1520/format/webp/2025/04/Abu-Dhabi-govt-case-study.png 1520w"
+                sizes="(min-width: 1280px) 145px, (min-width: 1000px) 12vw, (min-width: 600px) 18vw, 30vw">
+            <img class="post-card__image"
+                width="16" height="9"
+                src="/content/images/size/w760/format/webp/2025/04/Abu-Dhabi-govt-case-study.png"
+                loading="lazy"
+                alt="TAMM AI Assistant: Transforming Government Services in Abu Dhabi with LangChain and LangGraph&quot;"
+                onload="this.setAttribute('data-loaded', true)">
+        </picture>
+    </a>
+
+    <div class="post-card__content">
+        <a href="/customers-abu-dhabi-government/" class="post-card__content-link">
+            <h2 class="post-card__title">TAMM AI Assistant: Transforming Government Services in Abu Dhabi with LangChain and LangGraph&quot;</h2>
+            
+
+        </a>
+        <div class="post-card__footer">
+            <a href="/tag/case-studies/" class="post-card__meta post-card__meta-tag-primary" rel="tag">Case Studies</a>
+            <span class="post-card__meta post-card__meta--read-time">4 min read</span>
+        </div>
+    </div>
+
+</article>
+            <article class="post-card post tag-case-studies" data-layout="horizontal" data-has-featured-image="true">
+
+    
+    <a href="/customers-harmonic/" class="post-card__media" tabindex="-1">
+        <picture class="post-card__figure">
+            <source
+                srcset="/content/images/size/w360/format/webp/2025/04/Harmonic-case-study.png 360w,/content/images/size/w480/format/webp/2025/04/Harmonic-case-study.png 480w,/content/images/size/w760/format/webp/2025/04/Harmonic-case-study.png 760w,/content/images/size/w990/format/webp/2025/04/Harmonic-case-study.png 990w,/content/images/size/w1248/format/webp/2025/04/Harmonic-case-study.png 1248w,/content/images/size/w1520/format/webp/2025/04/Harmonic-case-study.png 1520w"
+                sizes="(min-width: 1280px) 145px, (min-width: 1000px) 12vw, (min-width: 600px) 18vw, 30vw">
+            <img class="post-card__image"
+                width="16" height="9"
+                src="/content/images/size/w760/format/webp/2025/04/Harmonic-case-study.png"
+                loading="lazy"
+                alt="How Harmonic built an investment agent with LangGraph and LangSmith— so VCs can focus on founders"
+                onload="this.setAttribute('data-loaded', true)">
+        </picture>
+    </a>
+
+    <div class="post-card__content">
+        <a href="/customers-harmonic/" class="post-card__content-link">
+            <h2 class="post-card__title">How Harmonic built an investment agent with LangGraph and LangSmith— so VCs can focus on founders</h2>
+            
+
+        </a>
+        <div class="post-card__footer">
+            <a href="/tag/case-studies/" class="post-card__meta post-card__meta-tag-primary" rel="tag">Case Studies</a>
+            <span class="post-card__meta post-card__meta--read-time">5 min read</span>
+        </div>
+    </div>
+
+</article>
+            <article class="post-card post tag-case-studies" data-layout="horizontal" data-has-featured-image="true">
+
+    
+    <a href="/customers-lovable/" class="post-card__media" tabindex="-1">
+        <picture class="post-card__figure">
+            <source
+                srcset="/content/images/size/w360/format/webp/2025/03/Screenshot-2025-03-20-at-3.48.28-PM.png 360w,/content/images/size/w480/format/webp/2025/03/Screenshot-2025-03-20-at-3.48.28-PM.png 480w,/content/images/size/w760/format/webp/2025/03/Screenshot-2025-03-20-at-3.48.28-PM.png 760w,/content/images/size/w990/format/webp/2025/03/Screenshot-2025-03-20-at-3.48.28-PM.png 990w,/content/images/size/w1248/format/webp/2025/03/Screenshot-2025-03-20-at-3.48.28-PM.png 1248w,/content/images/size/w1520/format/webp/2025/03/Screenshot-2025-03-20-at-3.48.28-PM.png 1520w"
+                sizes="(min-width: 1280px) 145px, (min-width: 1000px) 12vw, (min-width: 600px) 18vw, 30vw">
+            <img class="post-card__image"
+                width="16" height="9"
+                src="/content/images/size/w760/format/webp/2025/03/Screenshot-2025-03-20-at-3.48.28-PM.png"
+                loading="lazy"
+                alt="How Lovable uses LangSmith to debug &amp; monitor agents in production"
+                onload="this.setAttribute('data-loaded', true)">
+        </picture>
+    </a>
+
+    <div class="post-card__content">
+        <a href="/customers-lovable/" class="post-card__content-link">
+            <h2 class="post-card__title">How Lovable uses LangSmith to debug &amp; monitor agents in production</h2>
+            
+
+        </a>
+        <div class="post-card__footer">
+            <a href="/tag/case-studies/" class="post-card__meta post-card__meta-tag-primary" rel="tag">Case Studies</a>
+            <span class="post-card__meta post-card__meta--read-time">2 min read</span>
+        </div>
+    </div>
+
+</article>
+            <article class="post-card post tag-case-studies" data-layout="horizontal" data-has-featured-image="true">
+
+    
+    <a href="/customers-vodafone/" class="post-card__media" tabindex="-1">
+        <picture class="post-card__figure">
+            <source
+                srcset="/content/images/size/w360/format/webp/2025/03/Vodafone-casestudy.png 360w,/content/images/size/w480/format/webp/2025/03/Vodafone-casestudy.png 480w,/content/images/size/w760/format/webp/2025/03/Vodafone-casestudy.png 760w,/content/images/size/w990/format/webp/2025/03/Vodafone-casestudy.png 990w,/content/images/size/w1248/format/webp/2025/03/Vodafone-casestudy.png 1248w,/content/images/size/w1520/format/webp/2025/03/Vodafone-casestudy.png 1520w"
+                sizes="(min-width: 1280px) 145px, (min-width: 1000px) 12vw, (min-width: 600px) 18vw, 30vw">
+            <img class="post-card__image"
+                width="16" height="9"
+                src="/content/images/size/w760/format/webp/2025/03/Vodafone-casestudy.png"
+                loading="lazy"
+                alt="Vodafone transforms data operations with AI using LangChain and LangGraph"
+                onload="this.setAttribute('data-loaded', true)">
+        </picture>
+    </a>
+
+    <div class="post-card__content">
+        <a href="/customers-vodafone/" class="post-card__content-link">
+            <h2 class="post-card__title">Vodafone transforms data operations with AI using LangChain and LangGraph</h2>
+            
+
+        </a>
+        <div class="post-card__footer">
+            <a href="/tag/case-studies/" class="post-card__meta post-card__meta-tag-primary" rel="tag">Case Studies</a>
+            <span class="post-card__meta post-card__meta--read-time">5 min read</span>
+        </div>
+    </div>
+
+</article>
+            <article class="post-card post tag-case-studies" data-layout="horizontal" data-has-featured-image="true">
+
+    
+    <a href="/customers-inconvo/" class="post-card__media" tabindex="-1">
+        <picture class="post-card__figure">
+            <source
+                srcset="/content/images/size/w360/format/webp/2025/03/Inconvo-case-study.png 360w,/content/images/size/w480/format/webp/2025/03/Inconvo-case-study.png 480w,/content/images/size/w760/format/webp/2025/03/Inconvo-case-study.png 760w,/content/images/size/w990/format/webp/2025/03/Inconvo-case-study.png 990w,/content/images/size/w1248/format/webp/2025/03/Inconvo-case-study.png 1248w,/content/images/size/w1520/format/webp/2025/03/Inconvo-case-study.png 1520w"
+                sizes="(min-width: 1280px) 145px, (min-width: 1000px) 12vw, (min-width: 600px) 18vw, 30vw">
+            <img class="post-card__image"
+                width="16" height="9"
+                src="/content/images/size/w760/format/webp/2025/03/Inconvo-case-study.png"
+                loading="lazy"
+                alt="How Inconvo is improving customer-facing analytics with conversational AI built on LangGraph"
+                onload="this.setAttribute('data-loaded', true)">
+        </picture>
+    </a>
+
+    <div class="post-card__content">
+        <a href="/customers-inconvo/" class="post-card__content-link">
+            <h2 class="post-card__title">How Inconvo is improving customer-facing analytics with conversational AI built on LangGraph</h2>
+            
+
+        </a>
+        <div class="post-card__footer">
+            <a href="/tag/case-studies/" class="post-card__meta post-card__meta-tag-primary" rel="tag">Case Studies</a>
+            <span class="post-card__meta post-card__meta--read-time">2 min read</span>
+        </div>
+    </div>
+
+</article>
+            <article class="post-card post tag-case-studies" data-layout="horizontal" data-has-featured-image="true">
+
+    
+    <a href="/customers-chrobinson/" class="post-card__media" tabindex="-1">
+        <picture class="post-card__figure">
+            <source
+                srcset="/content/images/size/w360/format/webp/2025/03/CH-Robinson-case-study--1-.png 360w,/content/images/size/w480/format/webp/2025/03/CH-Robinson-case-study--1-.png 480w,/content/images/size/w760/format/webp/2025/03/CH-Robinson-case-study--1-.png 760w,/content/images/size/w990/format/webp/2025/03/CH-Robinson-case-study--1-.png 990w,/content/images/size/w1248/format/webp/2025/03/CH-Robinson-case-study--1-.png 1248w,/content/images/size/w1520/format/webp/2025/03/CH-Robinson-case-study--1-.png 1520w"
+                sizes="(min-width: 1280px) 145px, (min-width: 1000px) 12vw, (min-width: 600px) 18vw, 30vw">
+            <img class="post-card__image"
+                width="16" height="9"
+                src="/content/images/size/w760/format/webp/2025/03/CH-Robinson-case-study--1-.png"
+                loading="lazy"
+                alt="How C.H. Robinson is transforming the logistics industry with LangChain"
+                onload="this.setAttribute('data-loaded', true)">
+        </picture>
+    </a>
+
+    <div class="post-card__content">
+        <a href="/customers-chrobinson/" class="post-card__content-link">
+            <h2 class="post-card__title">How C.H. Robinson is transforming the logistics industry with LangChain</h2>
+            
+
+        </a>
+        <div class="post-card__footer">
+            <a href="/tag/case-studies/" class="post-card__meta post-card__meta-tag-primary" rel="tag">Case Studies</a>
+            <span class="post-card__meta post-card__meta--read-time">2 min read</span>
+        </div>
+    </div>
+
+</article>
+    </div>
+</div>
+
+
+    </footer>
+
+</article>
+
+
+        </main>
+
+        <footer id="site-footer" class="site-footer" data-theme="highlight">
+
+
+    <div class="site-footer__content" data-canvas-grid="container">
+
+            <nav class="nav-secondary">
+        <ul class="nav-secondary__menu">
+            <li class="nav-secondary__menu-item">
+                <a class="nav-secondary__menu-link" href="#/portal/">
+                    <span class="nav-secondary__menu-title">Sign up</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+
+        <p class="site-footer__copyright">
+            © LangChain Blog 2025
+        </p>
+
+    </div>
+</footer>
+
+    </div><!-- .site -->
+
+    <script type="module" src="https://blog.langchain.dev/assets/dist/main.js?v=80df0666b2"></script>
+
+    
+
+</body>
+
+</html>

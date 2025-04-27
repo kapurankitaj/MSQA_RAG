@@ -1,0 +1,13 @@
+ID,First Name,Last Name,Email,Date of Birth,Age,Salary,Department,Position,"Address, Line 1",City,Country,Postal Code,Phone Number,Hire Date,Manager ID,Performance Score,Is Active,Notes,URL,Percentage,Decimal Value,"Text with ""quotes""",Text with commas,Empty Field,,NULL,"Special Characters: !@#$%^&*()_+"
+1,John,Smith,john.smith@example.com,1980-05-15,43,"$75,000.00",Marketing,Senior Manager,"123 Main St, Apt 4B",New York,USA,10001,555-123-4567,2015-03-10,NULL,4.5,TRUE,"Has received multiple awards
+Excellent communication skills",https://example.com/profile/1,85.7%,123.456,"This text has ""quotes"" inside it","This text has, commas inside it",,,NULL,!@#$%^&*()_+
+2,Jane,Doe,jane.doe@example.com,1990-08-22,33,"$82,500.50",Engineering,Lead Developer,456 Oak Avenue,San Francisco,USA,94107,555-987-6543,2017-11-15,1,4.8,TRUE,"Top performer
+Leads the backend team",https://example.com/profile/2,92.3%,456.789,"More ""quoted"" text","More, comma, separated, text",empty field,,hello,αβγδεζηθικλμνξο
+3,Michael,Johnson,michael.j@example.com,1975-12-03,48,"$105,750.25",Finance,Director,789 Pine Street,Chicago,USA,60601,555-246-8101,2010-06-22,NULL,4.2,TRUE,"Financial expert
+MBA from Harvard",https://example.com/profile/3,78.9%,789.123,"Even more ""quotes""","Even more, commas",,,,ñáéíóúüÑÁÉÍÓÚÜ
+4,Sarah,Williams,sarah.w@example.com,1988-04-17,35,"$68,900.75",Human Resources,HR Manager,321 Maple Road,Seattle,USA,98101,555-369-2580,2018-09-30,3,4.0,TRUE,"Great with people
+Implemented new hiring process",https://example.com/profile/4,81.2%,234.567,"Text ""with"" multiple ""quotes""","Text, with, multiple, commas",,,,"€£¥₹₽₩元円₺₴₦₱"
+5,David,Brown,david.b@example.com,1992-10-28,31,"$63,500.00",IT,Systems Administrator,654 Cedar Lane,Austin,USA,78701,555-147-2583,2019-02-15,1,3.7,TRUE,"Network specialist
+CCNA certified",https://example.com/profile/5,75.8%,345.678,"More ""quote"" examples","More, comma, examples",,,"NULL",≤≥≠≈∑∏∫∂∇√∆π∞
+6,Emily,Miller,emily.m@example.com,1983-07-09,40,"$92,300.50",Sales,Regional Manager,987 Birch Boulevard,Boston,USA,02108,555-852-9631,2014-08-12,3,4.6,TRUE,"Exceeded targets by 20%
+Manages East Coast team",https://example.com/profile/6,88.5%,567.890,"Final ""quote"" test","Final, comma, test",,,"",©®™§¶†‡

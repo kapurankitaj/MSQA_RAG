@@ -1,0 +1,6 @@
+id,name,age,email,salary,department,start_date,manager,performance_score
+1,John Smith,34,john.smith@example.com,"$75,000",Marketing,2018-05-15,James Wilson,4.2
+2,Sarah Johnson,,sarah.j@example.com,"$82,500",Engineering,2020-03-10,,4.7
+3,Michael Brown,42,,,HR,2015-11-22,Lisa Thompson,
+4,Emily Davis,31,emily.d@example.com,"$78,500",Finance,,,3.9
+5,Robert Wilson,39,robert.w@example.com,,,2019-08-05,John Smith,4.5

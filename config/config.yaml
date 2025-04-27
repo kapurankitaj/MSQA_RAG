@@ -1,0 +1,21 @@
+data_sources:
+  pdf_paths: 
+    - 'path/to/your/pdfs'
+  html_sources: 
+    - 'path/to/your/html/files'
+  csv_paths: 
+    - 'path/to/your/csvs'
+  sql_database: 
+    connection_string: 'sqlite:///your_database.db'
+
+llm_config:
+  provider: 'openai'
+  model: 'gpt-3.5-turbo'
+  api_key: 'your_openai_api_key'
+
+embedding_model:
+  name: 'all-MiniLM-L6-v2'
+
+search_config:
+  vector_top_k: 5
+  bm25_top_k: 3

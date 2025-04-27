@@ -1,0 +1,626 @@
+<!doctype html>
+<html lang="en" class="no-js" data-header-style="classic">
+
+<head>
+    <title>How do I speed up my AI agent?</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>document.documentElement.classList.replace('no-js','js');</script>
+    <script>
+        if (window.localStorage.getItem('kutak-prefers-color-scheme') && !document.documentElement.hasAttribute('data-prefers-color-scheme')) {
+            document.documentElement.setAttribute('data-prefers-color-scheme', window.localStorage.getItem('kutak-prefers-color-scheme'));
+        }
+    </script>
+
+    <link rel="preload" as="font" type="font/woff2" href="https://blog.langchain.dev/assets/fonts/source-sans-pro-v21-latin-ext_latin-regular.woff2?v=80df0666b2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="https://blog.langchain.dev/assets/fonts/source-sans-pro-v21-latin-ext_latin-600.woff2?v=80df0666b2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="https://blog.langchain.dev/assets/fonts/source-sans-pro-v21-latin-ext_latin-700.woff2?v=80df0666b2" crossorigin>
+
+<style>
+    @font-face {
+        font-family: 'Source Sans Pro';
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url('https://blog.langchain.dev/assets/fonts/source-sans-pro-v21-latin-ext_latin-regular.woff2?v=80df0666b2') format('woff2');
+    }
+
+    @font-face {
+        font-family: 'Source Sans Pro';
+        font-style: italic;
+        font-weight: 400;
+        font-display: swap;
+        src: url('https://blog.langchain.dev/assets/fonts/source-sans-pro-v21-latin-ext_latin-italic.woff2?v=80df0666b2') format('woff2');
+    }
+
+    @font-face {
+        font-family: 'Source Sans Pro';
+        font-style: normal;
+        font-weight: 600;
+        font-display: swap;
+        src: url('https://blog.langchain.dev/assets/fonts/source-sans-pro-v21-latin-ext_latin-600.woff2?v=80df0666b2') format('woff2');
+    }
+
+    @font-face {
+        font-family: 'Source Sans Pro';
+        font-style: italic;
+        font-weight: 600;
+        font-display: swap;
+        src: url('https://blog.langchain.dev/assets/fonts/source-sans-pro-v21-latin-ext_latin-600italic.woff2?v=80df0666b2') format('woff2');
+    }
+
+    @font-face {
+        font-family: 'Source Sans Pro';
+        font-style: normal;
+        font-weight: 700;
+        font-display: swap;
+        src: url('https://blog.langchain.dev/assets/fonts/source-sans-pro-v21-latin-ext_latin-700.woff2?v=80df0666b2') format('woff2');
+    }
+
+    @font-face {
+        font-family: 'Source Sans Pro';
+        font-style: italic;
+        font-weight: 700;
+        font-display: swap;
+        src: url('https://blog.langchain.dev/assets/fonts/source-sans-pro-v21-latin-ext_latin-700italic.woff2?v=80df0666b2') format('woff2');
+    }
+
+    :root {
+        --kutak--font-family--base: 'Source Sans Pro', Helvetica, sans-serif;
+        --kutak--font-family--headings: 'Source Sans Pro', Helvetica, sans-serif;
+        --kutak--font-family--elements: 'Source Sans Pro', Helvetica, sans-serif;
+        --kutak--font-weight--base: 400;
+        --kutak--font-weight--base-bold: 700;
+        --kutak--font-weight--headings: 700;
+        --kutak--font-weight--headings-small: 600;
+        --kutak--font-weight--elements: 600;
+    }
+</style>
+
+    <link rel="stylesheet" href="https://blog.langchain.dev/assets/dist/style.css?v=80df0666b2">
+
+                <link rel="preload" as="image"
+                imagesrcset="/content/images/size/w360/format/webp/2025/03/openart-image_zkfUurHZ_1742063594759_raw.jpg 360w,/content/images/size/w480/format/webp/2025/03/openart-image_zkfUurHZ_1742063594759_raw.jpg 480w,/content/images/size/w760/format/webp/2025/03/openart-image_zkfUurHZ_1742063594759_raw.jpg 760w,/content/images/size/w990/format/webp/2025/03/openart-image_zkfUurHZ_1742063594759_raw.jpg 990w,/content/images/size/w1248/format/webp/2025/03/openart-image_zkfUurHZ_1742063594759_raw.jpg 1248w,/content/images/size/w1520/format/webp/2025/03/openart-image_zkfUurHZ_1742063594759_raw.jpg 1520w"
+                imagesizes="(min-width: 1280px) 580px, (min-width: 1000px) calc(50vw - 60px), 100vw">
+
+
+    <link rel="icon" href="https://blog.langchain.dev/content/images/size/w256h256/2024/03/Twitter_ProfilePicture.png" type="image/png">
+    <link rel="canonical" href="https://blog.langchain.dev/how-do-i-speed-up-my-agent/">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <meta property="og:site_name" content="LangChain Blog">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="How do I speed up my AI agent?">
+    <meta property="og:description" content="I get this question a bunch. Developers generally first spend time getting the agent to work, but then they turn their attention to speed and cost. There are few things we see developers doing:
+
+ * Identifying where the latency is coming from
+ * Changing the UX to reduce the “perceived” latency
+ * Making">
+    <meta property="og:url" content="https://blog.langchain.dev/how-do-i-speed-up-my-agent/">
+    <meta property="og:image" content="https://blog.langchain.dev/content/images/2025/03/openart-image_zkfUurHZ_1742063594759_raw.jpg">
+    <meta property="article:published_time" content="2025-03-15T18:34:47.000Z">
+    <meta property="article:modified_time" content="2025-03-26T17:47:55.000Z">
+    <meta property="article:tag" content="In the Loop">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="How do I speed up my AI agent?">
+    <meta name="twitter:description" content="I get this question a bunch. Developers generally first spend time getting the agent to work, but then they turn their attention to speed and cost. There are few things we see developers doing:
+
+ * Identifying where the latency is coming from
+ * Changing the UX to reduce the “perceived” latency
+ * Making">
+    <meta name="twitter:url" content="https://blog.langchain.dev/how-do-i-speed-up-my-agent/">
+    <meta name="twitter:image" content="https://blog.langchain.dev/content/images/2025/03/openart-image_zkfUurHZ_1742063594759_raw.jpg">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="Harrison Chase">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="In the Loop">
+    <meta name="twitter:site" content="@LangChainAI">
+    <meta property="og:image:width" content="1024">
+    <meta property="og:image:height" content="1024">
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "LangChain Blog",
+        "url": "https://blog.langchain.dev/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://blog.langchain.dev/content/images/2024/03/LangChain-logo.png"
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Harrison Chase",
+        "url": "https://blog.langchain.dev/author/harrison/",
+        "sameAs": []
+    },
+    "headline": "How do I speed up my AI agent?",
+    "url": "https://blog.langchain.dev/how-do-i-speed-up-my-agent/",
+    "datePublished": "2025-03-15T18:34:47.000Z",
+    "dateModified": "2025-03-26T17:47:55.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://blog.langchain.dev/content/images/2025/03/openart-image_zkfUurHZ_1742063594759_raw.jpg",
+        "width": 1024,
+        "height": 1024
+    },
+    "keywords": "In the Loop",
+    "description": "I get this question a bunch. Developers generally first spend time getting the agent to work, but then they turn their attention to speed and cost. There are few things we see developers doing:\n\n * Identifying where the latency is coming from\n * Changing the UX to reduce the “perceived” latency\n * Making fewer LLM calls\n * Speeding up LLM calls\n * Making LLM calls in parallel\n\n\nIdentifying where the latency is coming from\n\nThis may sound basic, but how you approach reducing latency will depend e",
+    "mainEntityOfPage": "https://blog.langchain.dev/how-do-i-speed-up-my-agent/"
+}
+    </script>
+
+    <meta name="generator" content="Ghost 5.117">
+    <link rel="alternate" type="application/rss+xml" title="LangChain Blog" href="https://blog.langchain.dev/rss/">
+    <script defer src="https://cdn.jsdelivr.net/ghost/portal@~2.50/umd/portal.min.js" data-i18n="true" data-ghost="https://blog.langchain.dev/" data-key="e411fdfa6f54398669f416d1f0" data-api="https://langchain-blog.ghost.io/ghost/api/content/" data-locale="en" crossorigin="anonymous"></script><style id="gh-members-styles">.gh-post-upgrade-cta-content,
+.gh-post-upgrade-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-align: center;
+    width: 100%;
+    color: #ffffff;
+    font-size: 16px;
+}
+
+.gh-post-upgrade-cta-content {
+    border-radius: 8px;
+    padding: 40px 4vw;
+}
+
+.gh-post-upgrade-cta h2 {
+    color: #ffffff;
+    font-size: 28px;
+    letter-spacing: -0.2px;
+    margin: 0;
+    padding: 0;
+}
+
+.gh-post-upgrade-cta p {
+    margin: 20px 0 0;
+    padding: 0;
+}
+
+.gh-post-upgrade-cta small {
+    font-size: 16px;
+    letter-spacing: -0.2px;
+}
+
+.gh-post-upgrade-cta a {
+    color: #ffffff;
+    cursor: pointer;
+    font-weight: 500;
+    box-shadow: none;
+    text-decoration: underline;
+}
+
+.gh-post-upgrade-cta a:hover {
+    color: #ffffff;
+    opacity: 0.8;
+    box-shadow: none;
+    text-decoration: underline;
+}
+
+.gh-post-upgrade-cta a.gh-btn {
+    display: block;
+    background: #ffffff;
+    text-decoration: none;
+    margin: 28px 0 0;
+    padding: 8px 18px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.gh-post-upgrade-cta a.gh-btn:hover {
+    opacity: 0.92;
+}</style>
+    <script defer src="https://cdn.jsdelivr.net/ghost/sodo-search@~1.5/umd/sodo-search.min.js" data-key="e411fdfa6f54398669f416d1f0" data-styles="https://cdn.jsdelivr.net/ghost/sodo-search@~1.5/umd/main.css" data-sodo-search="https://langchain-blog.ghost.io/" data-locale="en" crossorigin="anonymous"></script>
+    
+    <link href="https://blog.langchain.dev/webmentions/receive/" rel="webmention">
+    <script defer src="/public/cards.min.js?v=80df0666b2"></script>
+    <link rel="stylesheet" type="text/css" href="/public/cards.min.css?v=80df0666b2">
+    <script defer src="/public/member-attribution.min.js?v=80df0666b2"></script><style>:root {--ghost-accent-color: #1c3b3b;}</style>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z8XE5ZJE6X"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Z8XE5ZJE6X');
+</script>
+<script defer data-domain="blog.langchain.dev" src="https://plausible.io/js/script.js"></script>
+
+<style>
+  .nav-signin { /* Replace .nav-signin with the actual class or id */
+    display: none !important;
+  }
+</style>
+
+
+<style>
+@media (min-width: 62.5em) {
+    .article-header__figure {
+        aspect-ratio: 16/9;
+    }
+
+</style>
+</head>
+
+<body class="post-template tag-in-the-loop">
+
+    <a class="skip-link visually-hidden-focusable" href="#main">Skip to content</a>
+
+    <div class="site">
+
+        <header id="site-header" class="site-header">
+    <span class="site-header__bg"></span>
+
+    <div class="site-header__container container">
+        <button
+            class="site-header__hamburger"
+            data-site-action-trigger="navigation"
+            aria-label="Open Menu"
+            aria-expanded="false"
+            aria-controls="site-actions-navigation">
+            <span></span>
+        </button>
+
+        <a href="https://blog.langchain.dev" rel="home" class="site-header__logo">
+                <img class="site-header__logo-image" data-logo-color-scheme="default" src="https://blog.langchain.dev/content/images/2024/03/LangChain-logo.png" alt="LangChain Blog">
+        </a>
+
+        <div id="site-actions-navigation" class="site-navigation">
+            <div class="site-navigation__inner">
+                        <nav class="nav-classic">
+            <ul class="nav-classic__menu">
+                 
+                    <li class="nav-classic__menu-item">
+                        <a class="nav-classic__menu-link" href="https://blog.langchain.dev/tag/case-studies/">
+                            <span class="nav-classic__menu-title">Case Studies</span>
+                        </a>
+                    </li>
+                 
+                 
+                    <li class="nav-classic__menu-item">
+                        <a class="nav-classic__menu-link" href="https://blog.langchain.dev/tag/in-the-loop/">
+                            <span class="nav-classic__menu-title">In the Loop</span>
+                        </a>
+                    </li>
+                 
+                 
+                    <li class="nav-classic__menu-item">
+                        <a class="nav-classic__menu-link" href="https://www.langchain.com/">
+                            <span class="nav-classic__menu-title">LangChain</span>
+                        </a>
+                    </li>
+                 
+                 
+                    <li class="nav-classic__menu-item">
+                        <a class="nav-classic__menu-link" href="https://python.langchain.com/docs/get_started/introduction">
+                            <span class="nav-classic__menu-title">Docs</span>
+                        </a>
+                    </li>
+                 
+                 
+                    <li class="nav-classic__menu-item">
+                        <a class="nav-classic__menu-link" href="https://changelog.langchain.com/">
+                            <span class="nav-classic__menu-title">Changelog</span>
+                        </a>
+                    </li>
+                 
+            </ul>
+        </nav>
+
+                    <div class="site-account">
+                <a class="site-account__link" href="#/portal/signin" data-portal="signin">Sign in</a>
+                <a class="site-account__button button" data-btn-size="small" href="#/portal/signup" data-portal="signup">Subscribe</a>
+    </div>
+                            </div>
+        </div>
+
+        <button
+            class="site-header__search-trigger"
+            aria-label="Open Search"
+            data-ghost-search>
+            <span></span>
+        </button>
+    </div>
+
+    <div class="site-actions">
+        <span class="site-actions__backdrop" data-close-site-actions></span>
+        <span class="site-actions__bg"></span>
+
+
+    </div>
+
+</header>
+
+        <main id="main" class="site-main">
+            
+
+<article class="article post tag-in-the-loop">
+
+    <header class="article-header section" data-layout-grid="custom" data-theme="highlight" data-section="first" data-has-featured-image="true">
+        <figure class="article-header__figure">
+            <img class="article-header__image"
+                width="16" height="9"
+                src="/content/images/size/w760/format/webp/2025/03/openart-image_zkfUurHZ_1742063594759_raw.jpg"
+                srcset="/content/images/size/w360/format/webp/2025/03/openart-image_zkfUurHZ_1742063594759_raw.jpg 360w,/content/images/size/w480/format/webp/2025/03/openart-image_zkfUurHZ_1742063594759_raw.jpg 480w,/content/images/size/w760/format/webp/2025/03/openart-image_zkfUurHZ_1742063594759_raw.jpg 760w,/content/images/size/w990/format/webp/2025/03/openart-image_zkfUurHZ_1742063594759_raw.jpg 990w,/content/images/size/w1248/format/webp/2025/03/openart-image_zkfUurHZ_1742063594759_raw.jpg 1248w,/content/images/size/w1520/format/webp/2025/03/openart-image_zkfUurHZ_1742063594759_raw.jpg 1520w"
+                sizes="(min-width: 1280px) 580px, (min-width: 1000px) calc(50vw - 60px), 100vw"
+                loading="eager"
+                alt="How do I speed up my AI agent?"
+                onload="this.setAttribute('data-loaded', true)">
+        </figure>
+        <div class="article-header__content">
+            <h1 class="article-header__title">How do I speed up my AI agent?</h1>
+            <div class="article-header__footer">
+                <a href="/tag/in-the-loop/" class="article-header__meta article-header__meta-tag-primary" rel="tag">In the Loop</a>
+                <span class="article-header__meta article-header__meta--read-time">4 min read</span>
+                <time class="article-header__meta article-header__meta--date" datetime="2025-03-15">Mar 15, 2025</time>
+            </div>
+        </div>
+    </header>
+
+    <div class="article-main section" data-canvas-grid="content">
+        <div class="article-content" data-canvas-grid="content" data-canvas-grid-self="full">
+            <p>I get this question a bunch. Developers generally first spend time getting the agent to work, but then they turn their attention to speed and cost. There are few things we see developers doing:</p><ul><li>Identifying where the latency is coming from</li><li>Changing the UX to reduce the “perceived” latency</li><li>Making fewer LLM calls</li><li>Speeding up LLM calls</li><li>Making LLM calls in parallel</li></ul><h2 id="identifying-where-the-latency-is-coming-from">Identifying where the latency is coming from</h2><p>This may sound basic, but how you approach reducing latency will depend entirely on your specific bottleneck. Is the latency coming from one big LLM call, or from multiple small ones that just add up? You’ll need to diagnose these before trying to speed it up.</p><p><a href="http://langchain.com/langsmith?ref=blog.langchain.dev">LangSmith</a> is an incredibly useful tool for this, providing complete visibility into your agent interactions. You can track the latency of each step of the agent, and we’ve also recently introduced a “waterfall” view to easily identify which steps contribute the most to overall latency.</p><h2 id="changing-the-ux-to-reduce-the-%E2%80%9Cperceived%E2%80%9D-latency">Changing the UX to reduce the “perceived” latency</h2><p>Sometimes, the easiest way to reduce latency… is to not reduce latency.</p><p>While it might seem counterintuitive at first, but if we think about why latency matters — it often matters because people are concerned that if the agent takes too long to run, the user won’t like using it. This can often be solved by updating the UX of the agent. We see two main ways people do this.</p><ul><li><strong>Stream back results.</strong> Streaming is pretty common place for most LLM applications, but if you aren’t doing it, you definitely should. It conveys to the user that the LLM is working, and they are less likely to leave the page.In addition to streaming response tokens, you can also stream things beyond just the final response. For example, you could stream the steps of the plan the agent is taking, the retrieval results, or the thinking tokens. <a href="https://www.langchain.com/breakoutagents/perplexity?ref=blog.langchain.dev">Perplexity does a fantastic job at this</a> with their search interface. They’ve found that by making a UI change to show these intermediate steps, user satisfaction improved — despite the total completion time remaining unchanged.</li><li><strong>Run agents in the background</strong>. Have agents running in the background. For my email assistant, I don’t have visibility into how long the email agent takes. That’s because it is triggered by an event (an email) and I only get notified when it’s stuck. I hide <strong>all</strong> the latency from the user, and the agent just runs in the background.</li></ul><h2 id="making-fewer-llm-calls">Making fewer LLM calls</h2><p>Not everything needs to be an LLM call. If you can do things in a way other than making an LLM call - great! The agents we see being built are a combination of LLM calls and code. This hybrid approach of combining code with LLM calls is one of the guiding principles of LangGraph, and a core reason why <a href="https://blog.langchain.dev/is-langgraph-used-in-production/">companies like Replit, Uber, LinkedIn and Klarna are adopting it</a>.</p><p>A common path we see is “Single LLM call” → “ReAct Agent” → “Multi Agent” → “LangGraph”.</p><p>People start with a single LLM call. They run into some short comings, and step up to an agent. This works okay, but then they try to give it more tools and realize that a single agent can only support so many tools. They then go to a “multi-agent” setup, using a supervisor or swarm architecture.</p><p>The issue with this is that these architectures use a LOT of LLM calls. They are not super efficient in how the different agents communicate. That is by design - they are general purpose architectures, so they are not optimized for your use case.</p><p>That is when we see people reach for <a href="http://langchain.com/langgraph?ref=blog.langchain.dev">LangGraph</a>. LangGraph is low level, and allows you to specify exactly how these agents should communicate with each other (or when something is just an LLM call). Often times this leads to significantly less LLM calls, making the agent faster and cheaper (and often more reliable).</p><h2 id="speeding-up-llm-calls">Speeding up LLM calls</h2><p>We generally see two ways developers have been speeding up LLM calls.</p><p><strong>Faster models</strong>. Some models are faster than others. Google offers Gemini Flash which is very fast. OpenAI and Anthropic also have smaller, faster models. Open source model hosting platforms like Groq and Fireworks are constantly trying to make the best open source models faster and faster. Note: this often comes with a tradeoff of using <strong>worse</strong> models, as these faster models are usually smaller and thus less accurate.</p><p><strong>Less context.</strong> The time an LLM takes to respond is proportional to the length of the input. In order to get faster results, you can pass less input! This is why you need to have <strong>full control and visibility</strong> over what <strong>exactly</strong> goes into each LLM call. Frameworks that obfuscate this (or don’t make it easy to control) are no good - that is why LangGraph comes with no hidden prompts — you have full control. If you are looking for a way to get better <strong>visibility</strong> into what is going into the LLM calls - check out LangSmith.</p><h2 id="making-llm-calls-in-parallel">Making LLM calls in parallel</h2><p>Not applicable to all use cases, but if it is for your use case you should be doing this. LangGraph <a href="https://langchain-ai.github.io/langgraph/how-tos/branching/?ref=blog.langchain.dev">supports parallelism</a> out of the box. Examples of where you can think about doing this:</p><ul><li>Doing a guardrail check and generation in parallel</li><li>Doing extraction from multiple documents in parallel</li><li>Calling multiple models in parallel and then combining the outputs</li></ul><h2 id="conclusion">Conclusion</h2><p>Speeding up your AI agent is ultimately about making strategic tradeoffs between performance, cost, and capability. Start by first understanding your specific performance bottlenecks, then apply these techniques selectively based on your use case. And sometimes the most effective method isn't technical at all —&nbsp;but rather rethinking how users experience the interaction with your agent.</p><p>As you try out new strategies, we'd love to hear from you — what techniques have worked best for speeding up your agent? Drop us a line on <a href="https://x.com/LangChainAI?ref=blog.langchain.dev">X</a> or <a href="https://www.linkedin.com/company/langchain/?ref=blog.langchain.dev">LinkedIn</a>.</p>
+        </div>
+
+        <div class="article-tags">
+            <h3 class="article-tags__title meta-title">Tags</h3>
+            <div class="article-tags__cloud tagcloud"><a href="/tag/in-the-loop/">In the Loop</a></div>
+        </div>
+
+
+
+        <div class="article-newsletter newsletter-box" data-theme="highlight">
+            <h3 class="newsletter-box__title meta-title">Join our newsletter</h3>
+            <p class="newsletter-box__info">Updates from the LangChain team and community</p>
+            <form class="newsletter-box__form" data-members-form="signup" data-theme="reset">
+                <div class="newsletter-box__form-field">
+                    <label for="newsletter-box-email-input" class="visually-hidden">Enter your email</label>
+                    <input id="newsletter-box-email-input" class="newsletter-box__form-input" type="email" name="email" placeholder="Enter your email" required data-members-email>
+                    <button class="newsletter-box__form-submit" type="submit">Subscribe</button>
+                </div>
+                <p class="newsletter-box__message" data-message="loading">Processing your application...</p>
+                <p class="newsletter-box__message" data-message="success">Success! Please check your inbox and click the link to confirm your subscription.</p>
+                <p class="newsletter-box__message" data-message="error">Sorry, something went wrong. Please try again.</p>
+            </form>
+        </div>
+    </div>
+
+    <footer class="article-footer">
+        
+<div class="related-posts section" data-canvas-grid="container" data-theme="highlight">
+    <h3 class="related-posts__title section-title">You might also like</h3>
+    <div class="related-posts__grid grid">
+            <article class="post-card post tag-in-the-loop" data-layout="horizontal" data-has-featured-image="true">
+
+    
+    <a href="/how-to-think-about-agent-frameworks/" class="post-card__media" tabindex="-1">
+        <picture class="post-card__figure">
+            <source
+                srcset="/content/images/size/w360/format/webp/2025/04/Screenshot-2025-04-20-at-10.19.41-AM.png 360w,/content/images/size/w480/format/webp/2025/04/Screenshot-2025-04-20-at-10.19.41-AM.png 480w,/content/images/size/w760/format/webp/2025/04/Screenshot-2025-04-20-at-10.19.41-AM.png 760w,/content/images/size/w990/format/webp/2025/04/Screenshot-2025-04-20-at-10.19.41-AM.png 990w,/content/images/size/w1248/format/webp/2025/04/Screenshot-2025-04-20-at-10.19.41-AM.png 1248w,/content/images/size/w1520/format/webp/2025/04/Screenshot-2025-04-20-at-10.19.41-AM.png 1520w"
+                sizes="(min-width: 1280px) 145px, (min-width: 1000px) 12vw, (min-width: 600px) 18vw, 30vw">
+            <img class="post-card__image"
+                width="16" height="9"
+                src="/content/images/size/w760/format/webp/2025/04/Screenshot-2025-04-20-at-10.19.41-AM.png"
+                loading="lazy"
+                alt="How to think about agent frameworks"
+                onload="this.setAttribute('data-loaded', true)">
+        </picture>
+    </a>
+
+    <div class="post-card__content">
+        <a href="/how-to-think-about-agent-frameworks/" class="post-card__content-link">
+            <h2 class="post-card__title">How to think about agent frameworks</h2>
+            
+
+        </a>
+        <div class="post-card__footer">
+            <a href="/tag/in-the-loop/" class="post-card__meta post-card__meta-tag-primary" rel="tag">In the Loop</a>
+            <span class="post-card__meta post-card__meta--read-time">20 min read</span>
+        </div>
+    </div>
+
+</article>
+            <article class="post-card post tag-in-the-loop" data-layout="horizontal" data-has-featured-image="true">
+
+    
+    <a href="/mcp-fad-or-fixture/" class="post-card__media" tabindex="-1">
+        <picture class="post-card__figure">
+            <source
+                srcset="https://images.unsplash.com/photo-1620662736427-b8a198f52a4d?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDd8fGRlYmF0ZXxlbnwwfHx8fDE3NDEzNzcwMzZ8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;360 360w,https://images.unsplash.com/photo-1620662736427-b8a198f52a4d?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDd8fGRlYmF0ZXxlbnwwfHx8fDE3NDEzNzcwMzZ8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;480 480w,https://images.unsplash.com/photo-1620662736427-b8a198f52a4d?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDd8fGRlYmF0ZXxlbnwwfHx8fDE3NDEzNzcwMzZ8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;760 760w,https://images.unsplash.com/photo-1620662736427-b8a198f52a4d?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDd8fGRlYmF0ZXxlbnwwfHx8fDE3NDEzNzcwMzZ8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;990 990w,https://images.unsplash.com/photo-1620662736427-b8a198f52a4d?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDd8fGRlYmF0ZXxlbnwwfHx8fDE3NDEzNzcwMzZ8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;1248 1248w,https://images.unsplash.com/photo-1620662736427-b8a198f52a4d?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDd8fGRlYmF0ZXxlbnwwfHx8fDE3NDEzNzcwMzZ8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;1520 1520w"
+                sizes="(min-width: 1280px) 145px, (min-width: 1000px) 12vw, (min-width: 600px) 18vw, 30vw">
+            <img class="post-card__image"
+                width="16" height="9"
+                src="https://images.unsplash.com/photo-1620662736427-b8a198f52a4d?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;webp&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDd8fGRlYmF0ZXxlbnwwfHx8fDE3NDEzNzcwMzZ8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;760"
+                loading="lazy"
+                alt="MCP: Flash in the Pan or Future Standard?"
+                onload="this.setAttribute('data-loaded', true)">
+        </picture>
+    </a>
+
+    <div class="post-card__content">
+        <a href="/mcp-fad-or-fixture/" class="post-card__content-link">
+            <h2 class="post-card__title">MCP: Flash in the Pan or Future Standard?</h2>
+            
+
+        </a>
+        <div class="post-card__footer">
+            <a href="/tag/in-the-loop/" class="post-card__meta post-card__meta-tag-primary" rel="tag">In the Loop</a>
+            <span class="post-card__meta post-card__meta--read-time">5 min read</span>
+        </div>
+    </div>
+
+</article>
+            <article class="post-card post tag-in-the-loop" data-layout="horizontal" data-has-featured-image="true">
+
+    
+    <a href="/communication-is-all-you-need/" class="post-card__media" tabindex="-1">
+        <picture class="post-card__figure">
+            <source
+                srcset="/content/images/size/w360/format/webp/2024/10/https___replicate.delivery_yhqm_48NVpCrAS8pfVaHsDqTEoZnFJj390IVQsmrJDfn18A6s4eUnA_out-0.webp 360w,/content/images/size/w480/format/webp/2024/10/https___replicate.delivery_yhqm_48NVpCrAS8pfVaHsDqTEoZnFJj390IVQsmrJDfn18A6s4eUnA_out-0.webp 480w,/content/images/size/w760/format/webp/2024/10/https___replicate.delivery_yhqm_48NVpCrAS8pfVaHsDqTEoZnFJj390IVQsmrJDfn18A6s4eUnA_out-0.webp 760w,/content/images/size/w990/format/webp/2024/10/https___replicate.delivery_yhqm_48NVpCrAS8pfVaHsDqTEoZnFJj390IVQsmrJDfn18A6s4eUnA_out-0.webp 990w,/content/images/size/w1248/format/webp/2024/10/https___replicate.delivery_yhqm_48NVpCrAS8pfVaHsDqTEoZnFJj390IVQsmrJDfn18A6s4eUnA_out-0.webp 1248w,/content/images/size/w1520/format/webp/2024/10/https___replicate.delivery_yhqm_48NVpCrAS8pfVaHsDqTEoZnFJj390IVQsmrJDfn18A6s4eUnA_out-0.webp 1520w"
+                sizes="(min-width: 1280px) 145px, (min-width: 1000px) 12vw, (min-width: 600px) 18vw, 30vw">
+            <img class="post-card__image"
+                width="16" height="9"
+                src="/content/images/size/w760/format/webp/2024/10/https___replicate.delivery_yhqm_48NVpCrAS8pfVaHsDqTEoZnFJj390IVQsmrJDfn18A6s4eUnA_out-0.webp"
+                loading="lazy"
+                alt="Communication is all you need"
+                onload="this.setAttribute('data-loaded', true)">
+        </picture>
+    </a>
+
+    <div class="post-card__content">
+        <a href="/communication-is-all-you-need/" class="post-card__content-link">
+            <h2 class="post-card__title">Communication is all you need</h2>
+            
+
+        </a>
+        <div class="post-card__footer">
+            <a href="/tag/in-the-loop/" class="post-card__meta post-card__meta-tag-primary" rel="tag">In the Loop</a>
+            <span class="post-card__meta post-card__meta--read-time">7 min read</span>
+        </div>
+    </div>
+
+</article>
+            <article class="post-card post tag-in-the-loop" data-layout="horizontal" data-has-featured-image="true">
+
+    
+    <a href="/memory-for-agents/" class="post-card__media" tabindex="-1">
+        <picture class="post-card__figure">
+            <source
+                srcset="/content/images/size/w360/format/webp/2024/10/Screenshot-2024-10-19-at-9.59.50-AM.png 360w,/content/images/size/w480/format/webp/2024/10/Screenshot-2024-10-19-at-9.59.50-AM.png 480w,/content/images/size/w760/format/webp/2024/10/Screenshot-2024-10-19-at-9.59.50-AM.png 760w,/content/images/size/w990/format/webp/2024/10/Screenshot-2024-10-19-at-9.59.50-AM.png 990w,/content/images/size/w1248/format/webp/2024/10/Screenshot-2024-10-19-at-9.59.50-AM.png 1248w,/content/images/size/w1520/format/webp/2024/10/Screenshot-2024-10-19-at-9.59.50-AM.png 1520w"
+                sizes="(min-width: 1280px) 145px, (min-width: 1000px) 12vw, (min-width: 600px) 18vw, 30vw">
+            <img class="post-card__image"
+                width="16" height="9"
+                src="/content/images/size/w760/format/webp/2024/10/Screenshot-2024-10-19-at-9.59.50-AM.png"
+                loading="lazy"
+                alt="Memory for agents"
+                onload="this.setAttribute('data-loaded', true)">
+        </picture>
+    </a>
+
+    <div class="post-card__content">
+        <a href="/memory-for-agents/" class="post-card__content-link">
+            <h2 class="post-card__title">Memory for agents</h2>
+            
+
+        </a>
+        <div class="post-card__footer">
+            <a href="/tag/in-the-loop/" class="post-card__meta post-card__meta-tag-primary" rel="tag">In the Loop</a>
+            <span class="post-card__meta post-card__meta--read-time">5 min read</span>
+        </div>
+    </div>
+
+</article>
+            <article class="post-card post tag-in-the-loop" data-layout="horizontal" data-has-featured-image="true">
+
+    
+    <a href="/ux-for-agents-part-3/" class="post-card__media" tabindex="-1">
+        <picture class="post-card__figure">
+            <source
+                srcset="/content/images/size/w360/format/webp/2024/08/UX-for-agents---spreadsheet---part-3.png 360w,/content/images/size/w480/format/webp/2024/08/UX-for-agents---spreadsheet---part-3.png 480w,/content/images/size/w760/format/webp/2024/08/UX-for-agents---spreadsheet---part-3.png 760w,/content/images/size/w990/format/webp/2024/08/UX-for-agents---spreadsheet---part-3.png 990w,/content/images/size/w1248/format/webp/2024/08/UX-for-agents---spreadsheet---part-3.png 1248w,/content/images/size/w1520/format/webp/2024/08/UX-for-agents---spreadsheet---part-3.png 1520w"
+                sizes="(min-width: 1280px) 145px, (min-width: 1000px) 12vw, (min-width: 600px) 18vw, 30vw">
+            <img class="post-card__image"
+                width="16" height="9"
+                src="/content/images/size/w760/format/webp/2024/08/UX-for-agents---spreadsheet---part-3.png"
+                loading="lazy"
+                alt="UX for Agents, Part 3: Spreadsheet, Generative, and Collaborative UI/UX"
+                onload="this.setAttribute('data-loaded', true)">
+        </picture>
+    </a>
+
+    <div class="post-card__content">
+        <a href="/ux-for-agents-part-3/" class="post-card__content-link">
+            <h2 class="post-card__title">UX for Agents, Part 3: Spreadsheet, Generative, and Collaborative UI/UX</h2>
+            
+
+        </a>
+        <div class="post-card__footer">
+            <a href="/tag/in-the-loop/" class="post-card__meta post-card__meta-tag-primary" rel="tag">In the Loop</a>
+            <span class="post-card__meta post-card__meta--read-time">4 min read</span>
+        </div>
+    </div>
+
+</article>
+            <article class="post-card post tag-in-the-loop" data-layout="horizontal" data-has-featured-image="true">
+
+    
+    <a href="/ux-for-agents-part-2-ambient/" class="post-card__media" tabindex="-1">
+        <picture class="post-card__figure">
+            <source
+                srcset="/content/images/size/w360/format/webp/2024/08/UX-for-agents---ambient---part-2--1-.png 360w,/content/images/size/w480/format/webp/2024/08/UX-for-agents---ambient---part-2--1-.png 480w,/content/images/size/w760/format/webp/2024/08/UX-for-agents---ambient---part-2--1-.png 760w,/content/images/size/w990/format/webp/2024/08/UX-for-agents---ambient---part-2--1-.png 990w,/content/images/size/w1248/format/webp/2024/08/UX-for-agents---ambient---part-2--1-.png 1248w,/content/images/size/w1520/format/webp/2024/08/UX-for-agents---ambient---part-2--1-.png 1520w"
+                sizes="(min-width: 1280px) 145px, (min-width: 1000px) 12vw, (min-width: 600px) 18vw, 30vw">
+            <img class="post-card__image"
+                width="16" height="9"
+                src="/content/images/size/w760/format/webp/2024/08/UX-for-agents---ambient---part-2--1-.png"
+                loading="lazy"
+                alt="UX for Agents, Part 2: Ambient"
+                onload="this.setAttribute('data-loaded', true)">
+        </picture>
+    </a>
+
+    <div class="post-card__content">
+        <a href="/ux-for-agents-part-2-ambient/" class="post-card__content-link">
+            <h2 class="post-card__title">UX for Agents, Part 2: Ambient</h2>
+            
+
+        </a>
+        <div class="post-card__footer">
+            <a href="/tag/in-the-loop/" class="post-card__meta post-card__meta-tag-primary" rel="tag">In the Loop</a>
+            <span class="post-card__meta post-card__meta--read-time">4 min read</span>
+        </div>
+    </div>
+
+</article>
+    </div>
+</div>
+
+
+    </footer>
+
+</article>
+
+
+        </main>
+
+        <footer id="site-footer" class="site-footer" data-theme="highlight">
+
+
+    <div class="site-footer__content" data-canvas-grid="container">
+
+            <nav class="nav-secondary">
+        <ul class="nav-secondary__menu">
+            <li class="nav-secondary__menu-item">
+                <a class="nav-secondary__menu-link" href="#/portal/">
+                    <span class="nav-secondary__menu-title">Sign up</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+
+        <p class="site-footer__copyright">
+            © LangChain Blog 2025
+        </p>
+
+    </div>
+</footer>
+
+    </div><!-- .site -->
+
+    <script type="module" src="https://blog.langchain.dev/assets/dist/main.js?v=80df0666b2"></script>
+
+    
+
+</body>
+
+</html>

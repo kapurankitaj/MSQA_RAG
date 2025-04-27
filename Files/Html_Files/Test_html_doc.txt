@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Comprehensive HTML elements reference page">
+    <meta name="keywords" content="HTML, CSS, reference, elements, tags">
+    <meta name="author" content="Your Name">
+    
+    <title>Comprehensive HTML Elements Reference</title>
+    
+    <!-- Internal CSS -->
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        nav {
+            background-color: #333;
+            overflow: hidden;
+        }
+        
+        nav a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        
+        section {
+            margin: 20px 0;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #f2f2f2;
+        }
+        
+        .highlight {
+            background-color: yellow;
+            padding: 2px;
+        }
+        
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        
+        .box {
+            flex: 1;
+            margin: 10px;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        
+        /* Responsive design */
+        @media screen and (max-width: 600px) {
+            nav a {
+                float: none;
+                width: 100%;
+            }
+            
+            .container {
+                flex-direction: column;
+            }
+        }
+    </style>
+    
+    <!-- Optional external CSS reference -->
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+</head>
+<body>
+    <!-- Header section -->
+    <header id="main-header">
+        <h1>Comprehensive HTML Elements Reference</h1>
+        <p>A showcase of HTML5 elements for testing and reference</p>
+    </header>
+    
+    <!-- Navigation -->
+    <nav aria-label="Main Navigation">
+        <a href="#text-elements">Text Elements</a>
+        <a href="#list-elements">Lists</a>
+        <a href="#table-elements">Tables</a>
+        <a href="#form-elements">Forms</a>
+        <a href="#semantic-elements">Semantic Elements</a>
+        <a href="#embedded-elements">Embedded Content</a>
+    </nav>
+    
+    <!-- Main content -->
+    <main>
+        <!-- Text formatting section -->
+        <section id="text-elements">
+            <h2>Text Elements</h2>
+            
+            <h3>Headings</h3>
+            <h1>Heading Level 1</h1>
+            <h2>Heading Level 2</h2>
+            <h3>Heading Level 3</h3>
+            <h4>Heading Level 4</h4>
+            <h5>Heading Level 5</h5>
+            <h6>Heading Level 6</h6>
+            
+            <h3>Paragraphs and Text Formatting</h3>
+            <p>This is a standard paragraph. HTML paragraphs are defined with the p tag.</p>
+            <p>This paragraph contains <b>bold text</b>, <i>italic text</i>, <u>underlined text</u>, and <mark>highlighted text</mark>.</p>
+            <p>More formatting: <strong>strong importance</strong>, <em>emphasized text</em>, <small>smaller text</small>, <del>deleted text</del>, <ins>inserted text</ins>, <sub>subscript</sub>, and <sup>superscript</sup>.</p>
+            
+            <h3>Quotes and Citations</h3>
+            <blockquote cite="https://www.example.com">
+                This is a blockquote. It usually indicates an extended quotation from another source.
+                <footer>— <cite>Someone Famous</cite></footer>
+            </blockquote>
+            
+            <p>This is a short <q>inline quotation</q> within a paragraph.</p>
+            
+            <h3>Code and Preformatted Text</h3>
+            <p>The <code>code</code> element displays computer code.</p>
+            <pre>
+This is preformatted text.
+    It preserves both spaces
+        and line breaks.
+            </pre>
+            
+            <code>
+function helloWorld() {
+    console.log("Hello, World!");
+}
+            </code>
+            
+            <h3>Horizontal Rule and Line Break</h3>
+            <p>The content above<br>and below<br>the horizontal rule.</p>
+            <hr>
+            <p>Content after the horizontal rule.</p>
+        </section>
+        
+        <!-- Lists section -->
+        <section id="list-elements">
+            <h2>List Elements</h2>
+            
+            <h3>Unordered List</h3>
+            <ul>
+                <li>Item 1</li>
+                <li>Item 2
+                    <ul>
+                        <li>Nested item 2.1</li>
+                        <li>Nested item 2.2</li>
+                    </ul>
+                </li>
+                <li>Item 3</li>
+            </ul>
+            
+            <h3>Ordered List</h3>
+            <ol>
+                <li>First item</li>
+                <li>Second item
+                    <ol type="a">
+                        <li>Nested item a</li>
+                        <li>Nested item b</li>
+                    </ol>
+                </li>
+                <li>Third item</li>
+            </ol>
+            
+            <h3>Description List</h3>
+            <dl>
+                <dt>HTML</dt>
+                <dd>HyperText Markup Language - the standard markup language for creating web pages.</dd>
+                
+                <dt>CSS</dt>
+                <dd>Cascading Style Sheets - used for describing the presentation of a document written in HTML.</dd>
+                
+                <dt>JavaScript</dt>
+                <dd>A programming language that enables interactive web pages.</dd>
+            </dl>
+        </section>
+        
+        <!-- Tables section -->
+        <section id="table-elements">
+            <h2>Table Elements</h2>
+            
+            <table>
+                <caption>Sample Employee Table</caption>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Department</th>
+                        <th>Position</th>
+                        <th>Salary</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>John Smith</td>
+                        <td>Marketing</td>
+                        <td>Manager</td>
+                        <td>$85,000</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Jane Doe</td>
+                        <td>Engineering</td>
+                        <td>Developer</td>
+                        <td>$75,000</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Bob Johnson</td>
+                        <td>HR</td>
+                        <td>Recruiter</td>
+                        <td>$65,000</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="4">Average Salary:</td>
+                        <td>$75,000</td>
+                    </tr>
+                </tfoot>
+            </table>
+            
+            <h3>Complex Table with Rowspan and Colspan</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th rowspan="2">Category</th>
+                        <th colspan="4">Quarterly Sales</th>
+                        <th rowspan="2">Annual Total</th>
+                    </tr>
+                    <tr>
+                        <th>Q1</th>
+                        <th>Q2</th>
+                        <th>Q3</th>
+                        <th>Q4</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Electronics</td>
+                        <td>$10,000</td>
+                        <td>$12,500</td>
+                        <td>$15,000</td>
+                        <td>$18,000</td>
+                        <td>$55,500</td>
+                    </tr>
+                    <tr>
+                        <td>Clothing</td>
+                        <td>$8,000</td>
+                        <td>$9,500</td>
+                        <td>$7,500</td>
+                        <td>$11,000</td>
+                        <td>$36,000</td>
+                    </tr>
+                    <tr>
+                        <td>Food</td>
+                        <td>$5,000</td>
+                        <td>$5,200</td>
+                        <td>$5,100</td>
+                        <td>$5,800</td>
+                        <td>$21,100</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td>Total</td>
+                        <td>$23,000</td>
+                        <td>$27,200</td>
+                        <td>$27,600</td>
+                        <td>$34,800</td>
+                        <td>$112,600</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </section>
+        
+        <!-- Forms section -->
+        <section id="form-elements">
+            <h2>Form Elements</h2>
+            
+            <form action="#" method="post">
+                <fieldset>
+                    <legend>Personal Information</legend>
+                    
+                    <div>
+                        <label for="full-name">Full Name:</label>
+                        <input type="text" id="full-name" name="full-name" placeholder="Enter your full name" required>
+                    </div>
+                    
+                    <div>
+                        <label for="email">Email Address:</label>
+                        <input type="email" id="email" name="email" placeholder="example@domain.com" required>
+                    </div>
+                    
+                    <div>
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" name="password" minlength="8" required>
+                    </div>
+                    
+                    <div>
+                        <label for="birth-date">Date of Birth:</label>
+                        <input type="date" id="birth-date" name="birth-date">
+                    </div>
+                    
+                    <div>
+                        <label for="profile-picture">Profile Picture:</label>
+                        <input type="file" id="profile-picture" name="profile-picture" accept="image/*">
+                    </div>
+                </fieldset>
+                
+                <fieldset>
+                    <legend>Additional Information</legend>
+                    
+                    <div>
+                        <label for="age-range">Age Range:</label>
+                        <select id="age-range" name="age-range">
+                            <option value="">Select an option</option>
+                            <optgroup label="Young">
+                                <option value="18-24">18-24</option>
+                                <option value="25-34">25-34</option>
+                            </optgroup>
+                            <optgroup label="Middle-aged">
+                                <option value="35-44">35-44</option>
+                                <option value="45-54">45-54</option>
+                            </optgroup>
+                            <optgroup label="Senior">
+                                <option value="55-64">55-64</option>
+                                <option value="65+">65 and above</option>
+                            </optgroup>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <p>Gender:</p>
+                        <input type="radio" id="male" name="gender" value="male">
+                        <label for="male">Male</label><br>
+                        
+                        <input type="radio" id="female" name="gender" value="female">
+                        <label for="female">Female</label><br>
+                        
+                        <input type="radio" id="non-binary" name="gender" value="non-binary">
+                        <label for="non-binary">Non-binary</label><br>
+                        
+                        <input type="radio" id="not-specified" name="gender" value="not-specified">
+                        <label for="not-specified">Prefer not to say</label>
+                    </div>
+                    
+                    <div>
+                        <p>Interests (check all that apply):</p>
+                        <input type="checkbox" id="technology" name="interests" value="technology">
+                        <label for="technology">Technology</label><br>
+                        
+                        <input type="checkbox" id="sports" name="interests" value="sports">
+                        <label for="sports">Sports</label><br>
+                        
+                        <input type="checkbox" id="music" name="interests" value="music">
+                        <label for="music">Music</label><br>
+                        
+                        <input type="checkbox" id="travel" name="interests" value="travel">
+                        <label for="travel">Travel</label><br>
+                        
+                        <input type="checkbox" id="reading" name="interests" value="reading">
+                        <label for="reading">Reading</label>
+                    </div>
+                </fieldset>
+                
+                <fieldset>
+                    <legend>Other Form Controls</legend>
+                    
+                    <div>
+                        <label for="satisfaction">Satisfaction Level (1-5):</label>
+                        <input type="range" id="satisfaction" name="satisfaction" min="1" max="5" step="1">
+                    </div>
+                    
+                    <div>
+                        <label for="favorite-color">Favorite Color:</label>
+                        <input type="color" id="favorite-color" name="favorite-color">
+                    </div>
+                    
+                    <div>
+                        <label for="search-example">Search:</label>
+                        <input type="search" id="search-example" name="search-example" placeholder="Search...">
+                    </div>
+                    
+                    <div>
+                        <label for="quantity">Quantity (1-10):</label>
+                        <input type="number" id="quantity" name="quantity" min="1" max="10" value="1">
+                    </div>
+                    
+                    <div>
+                        <label for="feedback">Feedback:</label><br>
+                        <textarea id="feedback" name="feedback" rows="4" cols="50" placeholder="Enter your feedback here..."></textarea>
+                    </div>
+                    
+                    <div>
+                        <label for="meeting-time">Meeting Time:</label>
+                        <input type="time" id="meeting-time" name="meeting-time">
+                    </div>
+                    
+                    <div>
+                        <label for="website">Website:</label>
+                        <input type="url" id="website" name="website" placeholder="https://example.com">
+                    </div>
+                </fieldset>
+                
+                <div>
+                    <input type="submit" value="Submit">
+                    <input type="reset" value="Reset">
+                    <button type="button">Regular Button</button>
+                </div>
+            </form>
+        </section>
+        
+        <!-- Semantic elements section -->
+        <section id="semantic-elements">
+            <h2>Semantic Elements</h2>
+            
+            <article>
+                <h3>Sample Article</h3>
+                <p>This is an article element, representing a self-contained composition.</p>
+                <p>Articles are intended to be independently distributable or reusable.</p>
+                
+                <aside>
+                    <h4>Related Information</h4>
+                    <p>This is an aside element, representing content tangentially related to the content around it.</p>
+                </aside>
+            </article>
+            
+            <details>
+                <summary>Click to Expand Details</summary>
+                <p>This is the content within the details element. It's hidden by default until the user clicks on the summary.</p>
+                <p>It's useful for FAQs, accordion-style content, and other expandable sections.</p>
+            </details>
+            
+            <figure>
+                <img src="https://via.placeholder.com/300x200" alt="Placeholder Image">
+                <figcaption>Figure 1: This is a figure caption describing the image above.</figcaption>
+            </figure>
+            
+            <time datetime="2023-04-21T14:30">April 21, 2023, 2:30 PM</time>
+            
+            <address>
+                Contact Information:<br>
+                John Doe<br>
+                123 Main Street<br>
+                Anytown, CA 12345<br>
+                <a href="mailto:john@example.com">john@example.com</a><br>
+                <a href="tel:+11234567890">(123) 456-7890</a>
+            </address>
+        </section>
+        
+        <!-- Embedded content section -->
+        <section id="embedded-elements">
+            <h2>Embedded Content</h2>
+            
+            <h3>Images</h3>
+            <img src="https://via.placeholder.com/800x400" alt="Large Placeholder Image" width="800" height="400">
+            
+            <h3>Responsive Images</h3>
+            <picture>
+                <source media="(min-width: 650px)" srcset="https://via.placeholder.com/600x300">
+                <source media="(min-width: 465px)" srcset="https://via.placeholder.com/400x200">
+                <img src="https://via.placeholder.com/300x150" alt="Responsive Image Example" style="width:auto;">
+            </picture>
+            
+            <h3>SVG</h3>
+            <svg width="100" height="100">
+                <circle cx="50" cy="50" r="40" stroke="green" stroke-width="4" fill="yellow" />
+            </svg>
+            
+            <h3>Audio</h3>
+            <audio controls>
+                <source src="audio-file.mp3" type="audio/mpeg">
+                <source src="audio-file.ogg" type="audio/ogg">
+                Your browser does not support the audio element.
+            </audio>
+            
+            <h3>Video</h3>
+            <video width="320" height="240" controls>
+                <source src="video-file.mp4" type="video/mp4">
+                <source src="video-file.webm" type="video/webm">
+                Your browser does not support the video tag.
+            </video>
+            
+            <h3>iFrame</h3>
+            <iframe src="https://www.example.com" width="600" height="400" title="Example Website"></iframe>
+            
+            <h3>Canvas</h3>
+            <canvas id="myCanvas" width="200" height="100" style="border:1px solid #000000;">
+                Your browser does not support the canvas element.
+            </canvas>
+        </section>
+        
+        <!-- Interactive elements -->
+        <section id="interactive-elements">
+            <h2>Interactive Elements</h2>
+            
+            <h3>Dialog (Modal)</h3>
+            <dialog id="myDialog">
+                <h4>This is a Dialog</h4>
+                <p>Dialogs are popup windows that can be shown and hidden programmatically.</p>
+                <button id="closeDialog">Close</button>
+            </dialog>
+            <button id="showDialog">Show Dialog</button>
+            
+            <h3>Progress</h3>
+            <label for="file">Downloading progress:</label>
+            <progress id="file" value="32" max="100"> 32% </progress>
+            
+            <h3>Meter</h3>
+            <label for="disk_c">Disk usage C:</label>
+            <meter id="disk_c" value="2" min="0" max="10">2 out of 10</meter><br>
+            
+            <label for="disk_d">Disk usage D:</label>
+            <meter id="disk_d" value="0.6" optimum="0.8">60%</meter>
+        </section>
+        
+        <!-- Additional features section -->
+        <section id="additional-features">
+            <h2>Additional Features</h2>
+            
+            <h3>Data Attributes</h3>
+            <div data-user-id="123" data-user-name="John Doe">
+                This element has custom data attributes that can be accessed via JavaScript.
+            </div>
+            
+            <h3>Content Editable</h3>
+            <div contenteditable="true" style="border: 1px solid #ccc; padding: 10px;">
+                This content is editable. Click here and start typing to edit.
+            </div>
+            
+            <h3>Tooltips with Title Attribute</h3>
+            <p>Hover over <span title="This is a tooltip!">this text</span> to see a tooltip.</p>
+            
+            <h3>Links and Anchors</h3>
+            <a href="https://www.example.com" target="_blank">External Link (opens in new tab)</a><br>
+            <a href="mailto:contact@example.com">Email Link</a><br>
+            <a href="tel:+11234567890">Phone Link</a><br>
+            <a href="#main-header">Jump to Top (Internal Link)</a>
+        </section>
+        
+        <!-- Flex container example -->
+        <section id="layout-examples">
+            <h2>Layout Examples</h2>
+            
+            <h3>Flexbox Layout</h3>
+            <div class="container">
+                <div class="box">Box 1</div>
+                <div class="box">Box 2</div>
+                <div class="box">Box 3</div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer section -->
+    <footer>
+        <p>&copy; 2023 HTML Reference. All rights reserved.</p>
+        <p>Contact: <a href="mailto:info@example.com">info@example.com</a></p>
+        
+        <small>This document includes examples of most HTML5 elements for testing and reference purposes.</small>
+    </footer>
+    
+    <!-- JavaScript (internal) -->
+    <script>
+        // Simple JavaScript to make the dialog work
+        document.getElementById('showDialog').addEventListener('click', function() {
+            document.getElementById('myDialog').showModal();
+        });
+        
+        document.getElementById('closeDialog').addEventListener('click', function() {
+            document.getElementById('myDialog').close();
+        });
+        
+        // Basic canvas drawing
+        var canvas = document.getElementById("myCanvas");
+        var ctx = canvas.getContext("2d");
+        ctx.fillStyle = "#FF0000";
+        ctx.fillRect(10, 10, 80, 80);
+        
+        // Demonstrate console logging
+        console.log("HTML reference page loaded successfully!");
+    </script>
+    
+    <!-- External JavaScript reference (commented out) -->
+    <!-- <script src="script.js"></script> -->
+</body>
+</html>
